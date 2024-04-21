@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Registro de Usuario</h1>
+  <table class="audioTable" id="myTable">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Dirección IP</th>
+        <th>Usuario</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each logs.content}}
+      <tr>
+        <td>{{this.timestamp}}</td>
+        <td>{{this.ip}}</td>
+        <td>{{this.user}}</td>
+        <td>{{this.action}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="input-group pagination">
+        <div class="input-group-btn">
+            <button 
+              id="first-page" 
+              class="btn btn-default" 
+              type="button"
+              onclick="window.location.href='/logUser?page=0'"
+              {{#ifCond logs.first '==' true}}disabled{{/ifCond}}>
+              &lt;&lt;
+            </button>
+            <button 
+              id="previous-page" 
+              class="btn btn-default" 
+              type="button"
+              onclick="window.location.href='/logUser?page={{#math logs.number '-' 1}}{{/math}}'"
+              {{#ifCond logs.first '==' true}}disabled{{/ifCond}}>
+              &lt;
+            </button>
+        </div>
+        <div class="input-group-btn">        
+            <input readonly id="page-value" class="form-control" type="text" style="width: 50px;" value="{{#math logs.number '+' 1}}{{/math}}">
+        </div>
+        <div class="input-group-btn">
+          <span class="input-group-text">/{{logs.totalPages}}</span>
+        </div>
+        <div class="input-group-btn">
+            <button 
+              id="next-page" 
+              class="btn btn-default" 
+              type="button" 
+              onclick="window.location.href='/logUser?page={{#math logs.number '+' 1}}{{/math}}'"
+              {{#ifCond logs.last '==' true}}disabled{{/ifCond}}>
+              &gt;
+            </button>
+            <button 
+           
+              id="last-page" 
+              class="btn btn-default" 
+              type="button" 
+              onclick="window.location.href='/logUser?page={{#math logs.totalPages '-' 0}}{{/math}}'"
+              {{#ifCond logs.last '==' true}}disabled{{/ifCond}}>
+              &gt;&gt;
+            </button>
+         <a href="/downloadLogs"><button id=""  type="button" class="btn btn-primary btn-lg">Descargar histórico de usuarios</button></a>
+        </div>
+    </div>
+        </div>
+ 

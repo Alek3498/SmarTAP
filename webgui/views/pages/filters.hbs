@@ -1,0 +1,130 @@
+<div id="filtersID">
+<div class="form-row" id="vlanfilters">
+      <div class="form-group col-md-12">
+        <h3>Filtro de tráfico</h3>
+        <select id="inputGroup" class="form-control">
+          <option value="ALL">Todo el tráfico</option>
+          <option value="VLAN">VLAN</option>
+          <option value="PROTOPORT">Protocolo Puerto</option>
+          <option value="IP">Direccion IP</option>
+        </select>
+      </div>
+    </div>
+    <div id="ALL-ID" class="container">
+    <div>
+    <label for="ID-vlan">Todos los filtros</label>
+     <button onclick="filtersALL()"type="button" class="btn btn-secondary btn-sm">Ingresar filtro</button>
+        </small>
+    </div>
+    </div>
+
+    <div id="VLAN-ID" class="container" style="display: none;">
+    <div>
+    <label for="ID-vlan">VLAN ID</label>
+     <input type="number" id="idvlan" name="ID-vlan"/>
+     <button onclick="filtersVlan()" type="button" class="btn btn-secondary btn-sm">Ingresar filtro</button>
+     <small id="vlaninput" class="form-text text-muted">
+          Por favor ingrese un numero entre 1 y 4094<br>
+        </small>
+    </div>
+    </div>
+    
+<div id="PROTOPORT-ID" class="container" style="display: none;">
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Protocolos</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option value="NULL">Número de puerto</option>
+    <option value="TCP">TCP</option>
+    <!--<option value="TCP/UDP">TCP/UDP</option> -->
+    <option value="UDP">UDP</option>
+    <option value="ICMP">ICMP</option>
+  </select>
+  </div>
+  <div id="portnro">
+  <input id="protoIP" type="text" class="form-control" placeholder="Ingrese número de puerto">
+  <small id="PuertoSmall" class="form-text text-muted">
+          Ingrese un valor entre 1 y 66665<br>
+        </small>
+</div>
+<button onclick="filtersProto()" type="button" class="btn btn-secondary btn-sm" id="button-proto">Ingresar Filtro</button>
+
+  
+    </div>
+</div>
+
+<div id="IP-ID" class="container" style="display: none;">
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect02">Filtro IP</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect02">
+    <option value="NULL">Seleccione..</option>
+    <option value="SRCIP">IP Origen</option>
+    <option value="DestIP">IP Destino</option>
+    <option value="SRCIPDest">IP Origen + IP Destino</option>
+    <option value="SRCIPPort">IP Origen + Puerto Destino</option>
+    <option value="DestIPPort">IP Destino + Puerto Destino</option>
+    <option value="IPPORTDEST">IP Origen + IP Destino+ Puerto Destino</option>
+  </select>
+  </div>
+  <div id="SRCIP-NRO" style="display: none;">
+  <label for="validationTooltip01">Dirección IP origen</label>
+  <input id="ip" type="text" class="form-control" placeholder="Ingrese número de IP Origen">
+  <small id="PuertoSmall" class="form-text text-muted">
+          Debe ingresar una IP valida desde 0.0.0.0/1-32 y 254.254.254.254/1-32<br>
+        </small>
+</div>
+<div id="DestIP-NRO" style="display: none;">
+  <label for="validationTooltip01">Dirección IP destino</label>
+  <input id="ipDest" type="text" class="form-control" placeholder="Ingrese número de IP Destino">
+  <small id="PuertoSmall" class="form-text text-muted">
+          Debe ingresar una IP valida desde 0.0.0.0/1-32 y 254.254.254.254/1-32<br>
+        </small>
+</div>
+<div id="Port-NRO" style="display: none;">
+  <label for="validationTooltip01">Puerto destino</label>
+  <input id="Port-DestID" type="text" class="form-control" placeholder="Ingrese número de Puerto">
+  <small id="PuertoSmall" class="form-text text-muted">
+          Ingrese un valor entre 1 y 66665<br>
+        </small>
+</div>
+<div id="IPPORTDEST-NRO" style="display: none;">
+  <label for="validationTooltip01">Dirección IP origen</label>
+  <input id="ip" type="text" class="form-control" placeholder="Ingrese número de IP Origen">
+  <label for="validationTooltip01">Puerto destino</label>
+  <input id="Port-DestID" type="text" class="form-control" placeholder="Ingrese número de Puerto">
+  <small id="PuertoSmall" class="form-text text-muted">
+          Ingrese un valor entre 1 y 66665<br>
+        </small>
+</div>
+<button onclick="filtersIP()" type="button" class="btn btn-secondary btn-sm" id="button-ip">Ingresar filtro</button>
+  
+    </div>
+
+  <div id="cardFIlters" class="card text-white bg-info mb-3" style="max-width: 18rem," >
+  <div class="card-header">Filtros aplicados</div>
+  <div id="cards"  class="card-body">
+  
+  
+    
+  </div>
+</div>
+
+<button id="buttonfilter" onclick="sendFilters()" type="button" class="btn btn-primary btn-lg" style="display: inline;">Aplicar filtros</button>
+<button id="buttondelete" onclick="deleteFilters()" type="button" class="btn btn-primary btn-lg" style="display: inline;">Borrar filtro del listado</button>
+<button id="buttondelete" onclick="clearAllRules()" type="button" class="btn btn-primary btn-lg" style="display: inline;">Borrar todos los filtros aplicados</button>
+<a href="/download"><button id=""  type="button" class="btn btn-primary btn-lg">Descargar últimos filtros</button></a>
+<button id="buttonHide" onclick="hideHistory()" type="button" class="btn btn-primary btn-lg" style="display: none;">Ocultar historico</button>
+<div id="cardhistory" class="card" style="display: none;">
+  <div class="card-header">
+    Historico de filtros
+  </div>
+  <div id="cardbody" class="card-body">
+  </div>
+</div>
+  
+</div>
+</div>
+

@@ -1,0 +1,60 @@
+
+<div>
+
+<h3>Configuración de túnel</h3>
+<div id="Tunnel-ID" class="container">
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect04">Interfaces para el túnel</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect05">
+    <option id="eth0-tunel" value="eth0">eth0</option>
+    <option id="eth1-tunel" value="eth1">eth1</option>
+  </select>
+  </div>
+  </div>
+  <div id="tunnel-values" class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip01">IP origen túnel</label>
+      <input id="src-tunnel" type="text" class="form-control" id="validationTooltip01" placeholder="" value="" required>
+      <div class="invalid-tooltip">
+          Completar con una IP origen valida.
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationTooltip02">IP Destino túnel</label>
+      <input id="dest-tunnel" type="text" class="form-control" id="validationTooltip02" placeholder="" value="" required>
+      <div class="valid-tooltip">
+        
+      </div>
+    </div>
+    <div id="address-tunnel" class="col-md-4 mb-3" style="display: none;">
+      <label for="validationTooltip03">Dirección de interfaz túnel</label>
+      <input id="address-tunnelInput" type="text" class="form-control" id="validationTooltip03" placeholder="" value="" required>
+      
+    </div>
+    <div id="mask-tunnel"class="col-md-4 mb-3" style="display: none;">
+      <label for="validationTooltip02">Máscara</label>
+      <input id="mask-tunnelInput" type="text" class="form-control" id="validationTooltip02" placeholder="" value="" required>
+      
+    </div>
+    <div id="gw-tunnel" class="col-md-4 mb-3" style="display: none;">
+      <label for="validationTooltip02">Gateway</label>
+      <input id="gw-tunnelInput" type="text" class="form-control" id="validationTooltip02" placeholder="" value="" required>
+      
+    </div>
+   </div>
+  
+    <button id="" onclick="applyFilter()"  type="button" class="btn btn-primary btn-lg">Aplicar configuracion</button>
+  
+<ul id="boxTunnelFilter" class="list-group">
+
+    
+</ul>
+  
+  
+    
+  </div>
+</div>
+  
+</div>
