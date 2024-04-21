@@ -1,0 +1,11 @@
+[Unit]
+Description=Setting up tap rules at boot time 
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/opt/SmarTAP/system/setrules.sh
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target

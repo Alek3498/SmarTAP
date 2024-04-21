@@ -1,0 +1,11 @@
+[Unit]
+Description=Setting up the tunnel (L2GRE) at boot time 
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/SmarTAP/system/tunnel-0.sh eth0 10.0.0.201 10.10.10.170
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
