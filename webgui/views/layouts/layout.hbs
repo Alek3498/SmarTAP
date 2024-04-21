@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SmarTAP</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Source Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link href="/vendor/fontawesome/css/all.css" rel="stylesheet">
+
+  <!-- Tables -->
+  <link href="/css/tables.css" rel="stylesheet">
+  <link href="/css/all.css" rel="stylesheet">
+
+  <link href="/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet"> </script>
+</head>
+<body>
+
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+  <div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" >
+          <a href="/mgmt">
+          <img src="/imagenes/logoDaitek.png" style="width:150px; font-size:initial">
+          </a>
+        </div>
+      <div class="sidebar-items">
+        <div class="list-group list-group-flush">
+        <div class="sidebar-dropdown">
+        <a href="#" class="list-group-item list-group-item-action bg-transparent ssp-bold gray" style="color: #E7E7E7;"><i class="fa fa-wrench" aria-hidden="true"></i>   Configuración</a>
+        <div class="sidebar-submenu">
+        <a href="/tunnel" class="list-group-item list-group-item-action bg-transparent ssp-bold " style="color: #E7E7E7;" >Configuración de túnel</a>
+        <a href="/mgmt" class="list-group-item list-group-item-action bg-transparent ssp-bold" style="color: #E7E7E7;">Configuración de gestión</a>
+        </div>
+        </div>
+        <a href="/filters" id="filterpath" class="list-group-item list-group-item-action bg-transparent ssp-bold white" style="display: block;color:#E7E7E7;"><i class="fa fa-filter" aria-hidden="true"></i> Filtrar tráfico</a>
+        <a href="/status" class="list-group-item list-group-item-action bg-transparent ssp-bold white" style="color: #E7E7E7;"><i class="fas fa-tachometer-alt"></i>     Estadísticas de sonda</a>
+        <div class="sidebar-dropdown">
+        <a href="#" class="list-group-item list-group-item-action bg-transparent ssp-bold white" style="color: #E7E7E7;"><i class="fa fa-user" aria-hidden="true"></i>  Gestión de usuarios</a>
+        <div class="sidebar-submenu">
+        <a href="/newUser" class="list-group-item list-group-item-action bg-transparent ssp-bold white" style="color: #E7E7E7;"><i class="fa"></i> Inscripción de usuarios</a>
+        <a href="/listUser" class="list-group-item list-group-item-action bg-transparent ssp-bold white"style="color: #E7E7E7;">  Eliminar usuarios</a>
+        <a href="/logUser" class="list-group-item list-group-item-action bg-transparent ssp-bold white"style="color: #E7E7E7;">  Auditoria de usuarios</a>
+         </div>
+         </div>
+         <!--<a href="/tagAudio" class="list-group-item list-group-item-action bg-transparent ssp-bold pink">tags</a>-->
+        </div>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+        <div class="collapse navbar-collapse navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            
+            <li class="nav-item">
+              <a class="nav-link"  href="/">Cerrar Sesión <span class="sr-only"></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <!--page-content-->
+    <div class="container-fluid">
+      {{{ body }}}
+      
+    </div>
+    </div>
+  </div>
+  <script>
+  localStorage.setItem('ipmgmt',document.getElementById("address-mgmt").value)
+</script>
+  <!-- Bootstrap core JavaScript -->
+  <!-- Contenedor de botones de paginación -->
+  <script src="/vendor/sweetalerts/sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/axios/axios.min.js"></script>
+  <script src="/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="/vendor/tagginJS/tagging.min.js"></script>
+  <script src="/js/filterPage.js"></script>
+  <script src="/js/deleteUser.js"></script>
+  <script src="/js/historyFilters.js"></script>
+  <script src="/js/jsonObjectFilter.js"></script>
+  <script src="/js/jsonObjectTunnel.js"></script>
+  <script src="/js/filter.js"></script>
+  <script src="/js/setfilter.js"></script>
+  <script src="/js/filterProto.js"></script>
+  <script src="/js/filtersIP.js"></script>
+  <script src="/js/tunnel.js"></script>
+  <script src="/js/sendFilter.js"></script>
+  <script src="/js/setValuesmgmt.js"></script>
+  <script src="/js/newUser.js"></script>
+  <script src="/js/deleteUser.js"></script>
+  <script>
+    $(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(250);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(250);
+    $(this)
+      .parent()
+      .addClass("active");
+    }
+});
+$(".sidebar-submenu").click(function(){
+  $(this)
+    .addClass("active");
+})
+
+$("#toggle-sidebar").click(function() {
+  $(".page-wrapper").toggleClass("toggled");
+});
+
+
+  </script>
+</body>
+
+</html>
+
+
