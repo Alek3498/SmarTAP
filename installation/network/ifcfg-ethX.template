@@ -1,0 +1,5 @@
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=static
+ONBOOT=yes
