@@ -1,0 +1,93 @@
+#!/bin/bash
+# This script replay at a desired speed a given pcap file
+# Alek - v210213
+#----------------------------------------------------------
+
+# Network definitions
+#----------------------------------------------------------
+IF=eth0				#output interface. Must be promiscuos
+SP=100				#Output replay Speed 
+MTU=9000			#MTU size. Max = 9000
+
+# File definitions
+#----------------------------------------------------------
+LOGFILE=/var/log/injector-pcaps.log 	#Log file of everything
+OFILE=toutput.pcap		#truncated pcap file
+pcapfile=$1			#pcap to be play
+LOG="tee -a $LOGFILE"		#Command to generate the log file
+
+# Flags definitions
+#----------------------------------------------------------
+DEBUG=1				#Increase verbosity
+TRUNC=0				#use in case of packets with MTU > 9000
+
+
+
+
+function trunc {
+
+	if [ $DEBUG -eq 1 ]; then
+		echo ------------------------------------------------------------------------ | $LOG
+		date | $LOG 
+		echo ------------------------------------------------------------------------ | $LOG
+		echo "tcprewrite --mtu=$MTU --mtu-trunc --infile=$1 --outfile=$OFILE" | $LOG
+		tcprewrite --mtu=$MTU --mtu-trunc --infile=$1 --outfile=$OFILE
+		echo ------------------------------------------------------------------------ | $LOG
+	else
+		tcprewrite --mtu=$MTU --mtu-trunc --infile=$1 --outfile=$OFILE
+	fi
+
+}
+
+function play {
+
+	echo ------------------------------------------------------------------------ | $LOG
+	date | $LOG 
+	echo -----vvvv--------------------------------------------------------------- | $LOG
+	ip link set $IF mtu $MTU | $LOG
+	ip link show dev $IF | cut -f 2 -d '>' | $LOG
+	echo ------------------------------------------------------------------------ | $LOG
+	#echo "tcpreplay  -M $SP -i $IF $1" | $LOG
+	echo "tcpreplay  -M $SP -i $IF $pcapfile" | $LOG
+	echo ------------------------------------------------------------------------ | $LOG
+	tcpreplay -M $SP -i $IF $1 | $LOG
+	echo ------------------------------------------------------------------------ | $LOG
+	date | $LOG
+	echo -e "\n" | $LOG
+	
+}
+
+
+function cleanup {
+
+	rm -fr $OFILE
+}
+
+
+#----------------------------------------------------------------------------------------------
+#----- MAIN -----------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
+
+# Checking argument 
+if [ -z $pcapfile ]
+then
+	echo -e "\n\n###################################"
+	echo "A PCAP FILE IS REQUIERED.!!!"
+	echo "Example:"
+	echo -e "\treplay pcapfile"
+	echo -e "###################################\n\n"
+	exit
+fi
+
+
+if [ $TRUNC -eq 1 ]; then
+
+	trunc $pcapfile
+	play $OFILE
+	cleanup
+else
+	play $pcapfile
+fi	
+
+
+
