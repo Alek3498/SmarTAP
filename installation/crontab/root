@@ -1,0 +1,9 @@
+*/5 * * * * 	/opt/SmarTAP/rrdtool/bandwidth-bond0.sh
+*/5 * * * *	/opt/SmarTAP/rrdtool/bandwidth-eth0.sh 
+*/5 * * * *	/opt/SmarTAP/rrdtool/bandwidth-eth1.sh 
+*/5 * * * *	/opt/SmarTAP/rrdtool/bandwidth-eth2.sh 
+*/5 * * * *	/opt/SmarTAP/rrdtool/bandwidth-eth3.sh
+*/5 * * * *	/opt/SmarTAP/rrdtool/cpu.sh
+*/5 * * * *	/opt/SmarTAP/rrdtool/memory.sh
+*/5 * * * *     /opt/SmarTAP/rrdtool/temperature.sh
+
