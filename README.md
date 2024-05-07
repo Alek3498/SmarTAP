@@ -3,7 +3,7 @@ Traffic collector probe with the following functions:
 
 1- Collection of traffic from Span ports or TAPs
 
-2- Capability of filtering by L2, L3, L4 and protocols
+2- Capability of filtering by L2, L3 and L4
 
 3- Ingestion of traffic trought bond ports
 
