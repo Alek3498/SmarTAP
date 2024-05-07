@@ -13,11 +13,10 @@ Traffic probe with the following functions:
     
     4.2- Tunnel port
     
-5- Traffic is tunneled into a L2GRE tunnel
+5- Traffic tunneled into a L2GRE tunnel
 
 6- CLI with custom commands
 
 7- Optional GUI.
 
-8- User Guide
-
+8- Run on CentOS
