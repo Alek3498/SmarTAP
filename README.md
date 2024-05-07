@@ -22,4 +22,5 @@ Traffic collector probe with the following functions:
 8- Run on CentOS
 
 Note:
-1- the endpoint of the tunnel could be any device capable of decapsulate a L2GRE tunnel.
+
+1- The endpoint of the tunnel could be any device capable of decapsulate a L2GRE tunnel.
