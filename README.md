@@ -17,9 +17,7 @@ Traffic collector probe with the following functions:
 
 6- CLI with custom commands
 
-7- Optional GUI. (I didn't do it). Not needed if you love CLI :)
-
-8- Run on CentOS
+7- Run on CentOS
 
 Note:
 
