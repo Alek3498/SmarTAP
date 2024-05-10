@@ -133,7 +133,7 @@ function Net {
 	./installPromiscService.sh
 	./installTunnelService.sh
 	./installRulesService.sh
-	./installNodeJsService.sh
+	#./installNodeJsService.sh
 	cp * $SYS
 	cd ../
 }
