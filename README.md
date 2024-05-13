@@ -1,6 +1,6 @@
 # SmarTAP
 ### Traffic collector probe for remote and harsh environments 
-![Despliegue](https://github.com/Alek3498/SmarTAP/blob/main/Despliegue.png)
+![Despliegue](https://github.com/Alek3498/SmarTAP/blob/main/Despliegue-General.png)
 Keywords: Networking / scripting / Visibility
 
 
