@@ -26,4 +26,4 @@ Traffic collector probe with the following functions:
 
 Note:
 
-1- The endpoint of the tunnel could be any device capable of decapsulating an L2GRE tunnel.
+1- The endpoint of the tunnel could be any device capable of decapsulating a L2GRE tunnel.
