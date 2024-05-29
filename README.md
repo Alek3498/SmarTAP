@@ -1,5 +1,5 @@
 # SmarTAP
-### Traffic collector probe for remote and harsh environments 
+### Traffic collector probe for remote harsh environments 
 
 <img src="https://github.com/Alek3498/SmarTAP/blob/main/Despliegue-General.png" width="60%" height="60%">
 
