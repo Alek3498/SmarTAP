@@ -1,4 +1,4 @@
-# SmarTAP
+# Smart TAP
 ### Traffic collector probe for remote harsh environments 
 
 <img src="https://github.com/Alek3498/SmarTAP/blob/main/general_deployment.png" width="60%" height="60%">
